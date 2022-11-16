@@ -46,6 +46,8 @@ elif not exists(getenv("LOCALAPPDATA")+"\\Roblox\\"):
 rpl = "RobloxPlayerLauncher.exe"
 
 location1 = filepath+"\\"+rpl
+places = filepath+"\\ExtraContent\places"
+UniversalApp = filepath+"\\ExtraContent\\LuaPackages\\UniversalApp"
 location2 = filepath+"\content\sounds\ouch.ogg"
 
 repo = "lolmanurfunny/Roblox-Launcher-minus-the-app"
@@ -62,6 +64,11 @@ remove("{}\\RobloxPlayerLauncher.spec".format(absPath))
 rmtree("{}\\dist".format(absPath))
 if isOld == True:
     remove("{}\\RobloxPlayerLauncher.exe".format(downloads_path))
+    
+if exists(places) and not debug:
+    rmtree(places)
+if exists(UniversalApp) and not debug:
+    rmtree(UniversalApp)
 
 
 oof = input("Would you like to return the oof sound back? [Y/N] ")
